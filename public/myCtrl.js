@@ -39,4 +39,4 @@ app.controller('myCtrl', function($scope,MyService) {
 
     $scope.reset();
 
-});
+}); 
