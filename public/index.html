@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<base href="">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+
+<body ng-app="myApp">
+  <h2> colorElephant Assignment </h2>
+  <div ng-controller="myCtrl">
+    <a href="/admin">Admin</a> |
+    <a href="/user">User</a>
+
+    <div ng-view></div>
+
+
+    <!--<pre>user = {{user | json}}</pre>
+      <pre>master = {{master | json}}</pre>-->
+  </div>
+
+  <!--<script src="myRouter.js"></script>-->
+  <script src="myApp.js"></script>
+  <script src="myCtrl.js"></script>
+  <script src="myService.js"></script>
+  <script src="myDirective.js"></script>
+</body>
+</html
