@@ -22,7 +22,7 @@ app.service('MyService', function ($http) {
         //     return data; // do nothing! FormData is very good!
         // }
     }
-    var reqRegisterAdmin = {
+    var reqadminRegisters = {
         method: 'POST',
         url: 'http://localhost:3000/registerAdmin',
         headers: {
@@ -35,7 +35,6 @@ app.service('MyService', function ($http) {
         return $http(req);
     }
 
-
     this.uploadAttachment = function(attachment){
         reqUploadFile.data = attachment;
         // console.log('attachment', attachment);
@@ -43,10 +42,9 @@ app.service('MyService', function ($http) {
         return $http(reqUploadFile);
     }
 
-
-
-
-    this.registerAdmin = function(credentialsObject){
-        console.log('')
+    this.adminRegisters = function(adminCredentialsObject){
+        reqadminRegisters.data = adminCredentialsObject;
+        console.log('reqadminRegisters', reqadminRegisters);
+        return $http(reqUploadFile);
     }
 });
