@@ -9,13 +9,14 @@ var app = angular.module('myApp', ["ngRoute"]);
         .when('/admin', {
             templateUrl: 'admin.html',
             controller: 'adminController',
+            controllerAs:'admCtrl',
             resolve: {
-            // I will cause a 1 second delay
-            delay: function($q, $timeout) {
-                var delay = $q.defer();
-                $timeout(delay.resolve, 1000);
-                return delay.promise;
-            }
+                // I will cause a 1 second delay
+                delay: function($q, $timeout) {
+                    var delay = $q.defer();
+                    $timeout(delay.resolve, 500);
+                    return delay.promise;
+                }
             }
         })
         .when('/user', {
@@ -38,11 +39,20 @@ var app = angular.module('myApp', ["ngRoute"]);
         $scope.$routeParams = $routeParams;
     });
 
-    app.controller('adminController', function($scope, $routeParams) {
+    app.controller('adminController', function($scope, $routeParams, MyService) {
         $scope.name = 'BookController';
         $scope.params = $routeParams;
-
-        $scope.login = function(){
+        $scope.adminUser = {};
+        $scope.adminRegisters = function(){
+            console.log('adming registers', $scope.adminUser);
+            var adminRegDefer = MyService.adminRegisters();
+            adminRegDefer.then(function(data){
+                console.log('adminRegistrationSuccess', data);
+            },function(error){
+                console.log('adminRegistration', error);
+            })
+        }
+        $scope.adminLogsIn   = function(){
 
         }
     });
